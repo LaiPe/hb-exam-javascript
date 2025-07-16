@@ -18,7 +18,6 @@ export const initMap = async () => {
         mapMessage.textContent = ""
 
         // Config de la map avec les coordonnées
-        console.log(coords);
         map = L.map(mapContainer).setView([coords.lat, coords.lon],13);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
@@ -34,6 +33,6 @@ export const initMap = async () => {
 export const setMapByAdress = async (adress) => {
     const coords = await getCoordFromAdress(adress);
 
-    console.log(coords);
+    // console.log(coords);
     map.setView([coords.lat, coords.lon],14);
 }

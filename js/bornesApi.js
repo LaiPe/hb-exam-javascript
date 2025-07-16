@@ -37,7 +37,7 @@ export const getNearbyBornes = async () => {
                 gestBornes.ajouterBorne(borne)
             }
 
-            console.log(borne);
+            // console.log(borne);
         });
     } catch (error) {
         console.error('Erreur lors de la récupération des bornes:', error);

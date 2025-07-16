@@ -31,6 +31,7 @@ export const getCurrentLocationCoord = () => {
                 lat : pos.coords.latitude, 
                 lon : pos.coords.longitude
             }
+            console.log("Géolocalisation aquise : latitude =", result.lat,"; longitude =", result.lon);
             resolve(result);
         };
 

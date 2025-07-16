@@ -15,17 +15,16 @@
 import { initMap, setMapByAdress } from "./map.js";
 import { getNearbyBornes } from "./bornesApi.js"
 
-
-document.getElementById("form-coord-from-adress").addEventListener("submit", e => {
-    e.preventDefault();
-    const adressInput = document.getElementById("adress").value;
-    setMapByAdress(adressInput.trim());
-})
-
-initMap();
-
-const afficherBornes = async () => {
+const afficherBornesHTML = async () => {
     const gestBornes = await getNearbyBornes();
     document.getElementById("liste-bornes").innerHTML = gestBornes.toHTML();
 }
-afficherBornes();
+
+document.getElementById("form-coord-from-adress").addEventListener("submit", async e => {
+    e.preventDefault();
+    const adressInput = document.getElementById("adress").value;
+    await setMapByAdress(adressInput.trim());
+    afficherBornesHTML();
+})
+
+initMap();
