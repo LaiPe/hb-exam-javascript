@@ -12,7 +12,7 @@
 // document.querySelector("main").innerHTML = gest.toHTML();
 
 
-import {getCoordFromAdress} from "./bornesApi.js"
+import {getCoordFromAdress, getCurrentLocationCoord} from "./coordsApi.js"
 
 document.getElementById("form-coord-from-adress").addEventListener("submit", async e => {
     e.preventDefault();
@@ -21,3 +21,11 @@ document.getElementById("form-coord-from-adress").addEventListener("submit", asy
     
     document.getElementById("output").textContent = `lat:  ${data.lat}, lon: ${data.lon}`;
 })
+
+getCurrentLocationCoord()
+    .then(coords => {
+        console.log(coords);
+    })
+    .catch(error => {
+        console.error("Erreur de géolocalisation:", error);
+    });
