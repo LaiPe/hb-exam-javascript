@@ -34,7 +34,7 @@ class BornePublique extends Borne {
     }
 }
 
-class BornePrivee extends Borne {
+class BornePrivee extends BornePublique {
     constructor(id,lat,lon,owner) {
         super(id,lat,lon);
         this.owner = owner;
