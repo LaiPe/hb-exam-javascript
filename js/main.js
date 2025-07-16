@@ -13,6 +13,8 @@
 
 
 import { initMap, setMapByAdress } from "./map.js";
+import { getNearbyBornes } from "./bornesApi.js"
+
 
 document.getElementById("form-coord-from-adress").addEventListener("submit", e => {
     e.preventDefault();
@@ -21,3 +23,9 @@ document.getElementById("form-coord-from-adress").addEventListener("submit", e =
 })
 
 initMap();
+
+const afficherBornes = async () => {
+    const gestBornes = await getNearbyBornes();
+    document.getElementById("liste-bornes").innerHTML = gestBornes.toHTML();
+}
+afficherBornes();
