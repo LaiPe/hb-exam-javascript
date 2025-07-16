@@ -40,10 +40,16 @@
             <input id="heure-resa" type="time">
 
             <label for="duree-resa">Durée :</label>
-            <input type="number" min="1" max="6" value="1">
+            <input id="duree-resa" type="number" min="1" max="6" value="1">
             
             <button type="submit">Réserver</button>
         </form>
+        <p id="message-form-resa"></p>
+
+        <div>
+            <h2>Mes réservations</h2>
+            <ul id="liste-reservations"></ul>
+        </div>
 
     </main>
     <script type="module" src="./js/main.js"></script>
