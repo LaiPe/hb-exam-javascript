@@ -26,7 +26,7 @@ class BornePublique extends Borne {
     toHTML() {
         const li = document.createElement("li");
         if (this.isValidCoordinates()) {
-            li.textContent = `Borne ${this.id} - latitude : ${this.lat}, longitude : ${this.lon}`;
+            li.textContent = `Borne publique ${this.id} - latitude : ${this.lat}, longitude : ${this.lon}`;
         } else {
             li.textContent = "Borne avec coordonnées invalides !"
         }
@@ -43,7 +43,7 @@ class BornePrivee extends Borne {
     toHTML() {
         const li = document.createElement("li");
         if (this.isValidCoordinates()) {
-            li.textContent = `Borne ${this.id} de ${this.owner} - latitude : ${this.lat}, longitude : ${this.lon}`;
+            li.textContent = `Borne privée ${this.id} de ${this.owner} - latitude : ${this.lat}, longitude : ${this.lon}`;
         } else {
             li.textContent = "Borne avec coordonnées invalides !"
         }
@@ -53,7 +53,7 @@ class BornePrivee extends Borne {
 
 class GestionnaireBorne {
     constructor() {
-        this.gestionnaire = [];
+        this.bornes = [];
     }
 
     ajouterBorne(borne) {
