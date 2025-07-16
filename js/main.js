@@ -7,7 +7,7 @@ const afficherBornesHTML = async (gestBornes) => {
 
 document.getElementById("form-coord-from-adress").addEventListener("submit", async e => {
     e.preventDefault();
-    
+
     const adressInput = document.getElementById("adress").value;
     const gestBornes = await getNearbyBornes();
     await setMapByAdress(adressInput.trim());
@@ -15,5 +15,10 @@ document.getElementById("form-coord-from-adress").addEventListener("submit", asy
     afficherBornesHTML(gestBornes);
     afficherBornesOnMap(gestBornes);
 })
+
+document.getElementById("change-bornes-vue").addEventListener("click", () => {
+    document.getElementById("map").classList.toggle("hidden");
+    document.getElementById("liste-bornes").classList.toggle("hidden");
+});
 
 initMap();
