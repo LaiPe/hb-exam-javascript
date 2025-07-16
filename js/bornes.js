@@ -64,6 +64,16 @@ class GestionnaireBorne {
         }
     }
 
+    // Rendre l'objet itérable
+    [Symbol.iterator]() {
+        return this.bornes[Symbol.iterator]();
+    }
+    
+    // Méthode forEach personnalisée
+    forEach(callback, thisArg) {
+        this.bornes.forEach(callback, thisArg);
+    }
+
     toHTML() {
         const ul = document.createElement('ul');
         ul.className = 'liste-bornes';

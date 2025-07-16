@@ -50,3 +50,10 @@ export const setMapByAdress = async (adress) => {
     // Ajout d'un marqueur rouge à la nouvelle localisation
     L.marker([coords.lat, coords.lon],{icon: redIcon}).addTo(map);
 }
+
+export const afficherBornesOnMap = (gestBornes) => {
+    gestBornes.forEach(borne => {
+        // Ajout d'un marqueur pour chaque borne du gestionnaire
+        L.marker([borne.lat, borne.lon]).addTo(map);
+    });
+}
