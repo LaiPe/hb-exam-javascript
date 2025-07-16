@@ -62,8 +62,18 @@ export const setMapByAdress = async (adress) => {
 }
 
 export const afficherBornesOnMap = (gestBornes) => {
+    const markersGroup = L.layerGroup();
+
+    // Pour chaque borne contenue dans le gestionnaire
     gestBornes.forEach(borne => {
-        // Ajout d'un marqueur pour chaque borne du gestionnaire
-        L.marker([borne.lat, borne.lon]).addTo(map);
+        // Ajout d'un marqueur
+        const marker = L.marker([borne.lat, borne.lon]).addTo(map);
+        marker.borne = borne;
+        markersGroup.addLayer(marker);
+
+        // Impression du pop-up du marker
+        marker.bindPopup(borne.toHTML());
     });
+
+    return markersGroup;
 }

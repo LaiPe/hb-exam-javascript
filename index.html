@@ -28,6 +28,22 @@
         <p id="map-message"></p>
         <div id="map"></div>
         <ul id="liste-bornes" class="hidden"></ul>
+        
+        <form class="hidden" id="form-resa">
+            <h2>Formulaire de réservation</h2>
+            <p>Infos borne : <span id="info-bornes"></span></p>
+            
+            <label for="date-resa">Date :</label>
+            <input id="date-resa" type="date">
+
+            <label for="heure-resa">Heure :</label>
+            <input id="heure-resa" type="time">
+
+            <label for="duree-resa">Durée :</label>
+            <input type="number" min="1" max="6" value="1">
+            
+            <button type="submit">Réserver</button>
+        </form>
 
     </main>
     <script type="module" src="./js/main.js"></script>
