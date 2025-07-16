@@ -23,7 +23,7 @@ export const getCurrentLocationCoord = () => {
         const options = {
             enableHighAccuracy: true,
             timeout: 5000,
-            maximumAge: 0,
+            maximumAge: 2000,
         };
 
         const success = pos => {

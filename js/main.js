@@ -12,20 +12,12 @@
 // document.querySelector("main").innerHTML = gest.toHTML();
 
 
-import {getCoordFromAdress, getCurrentLocationCoord} from "./coordsApi.js"
+import { initMap, setMapByAdress } from "./map.js";
 
-document.getElementById("form-coord-from-adress").addEventListener("submit", async e => {
+document.getElementById("form-coord-from-adress").addEventListener("submit", e => {
     e.preventDefault();
-    const data = await getCoordFromAdress(document.getElementById("adress").value);
-    console.log(data);
-    
-    document.getElementById("output").textContent = `lat:  ${data.lat}, lon: ${data.lon}`;
+    const adressInput = document.getElementById("adress").value;
+    setMapByAdress(adressInput.trim());
 })
 
-getCurrentLocationCoord()
-    .then(coords => {
-        console.log(coords);
-    })
-    .catch(error => {
-        console.error("Erreur de géolocalisation:", error);
-    });
+initMap();
