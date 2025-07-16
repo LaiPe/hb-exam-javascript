@@ -2,6 +2,15 @@ import {getCoordFromAdress, getCurrentLocationCoord} from "./coordsApi.js";
 
 let map;
 
+const redIcon = L.icon({
+    iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
+
 export const initMap = async () => {
     const mapContainer = document.getElementById("map");
     const mapMessage = document.getElementById("map-message");
@@ -34,5 +43,10 @@ export const setMapByAdress = async (adress) => {
     const coords = await getCoordFromAdress(adress);
 
     // console.log(coords);
+
+    // Redirection de la vue de la map vers la nouvelle localisation
     map.setView([coords.lat, coords.lon],14);
+
+    // Ajout d'un marqueur rouge à la nouvelle localisation
+    L.marker([coords.lat, coords.lon],{icon: redIcon}).addTo(map);
 }
