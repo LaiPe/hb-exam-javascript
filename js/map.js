@@ -11,6 +11,15 @@ const redIcon = L.icon({
     shadowSize: [41, 41]
 });
 
+const resetMapMarkers = () => {
+    // Supprimer tous les marqueurs de la carte
+    map.eachLayer(layer => {
+        if (layer instanceof L.Marker) {
+            map.removeLayer(layer);
+        }
+    });
+}
+
 export const initMap = async () => {
     const mapContainer = document.getElementById("map");
     const mapMessage = document.getElementById("map-message");
@@ -42,7 +51,8 @@ export const initMap = async () => {
 export const setMapByAdress = async (adress) => {
     const coords = await getCoordFromAdress(adress);
 
-    // console.log(coords);
+    // Suppression des anciens markers
+    resetMapMarkers();
 
     // Redirection de la vue de la map vers la nouvelle localisation
     map.setView([coords.lat, coords.lon],14);
